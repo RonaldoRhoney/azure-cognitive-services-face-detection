@@ -2,7 +2,7 @@
 
 ## Detecção Facial
 
-Mais funcionalidades de Análise facial do que o servico de Pesquisa Visual Computacional, entre elas:
+Funcionalidades de Análise facial:
   - Atributos faciais:
     - Idade
     - Emoção
