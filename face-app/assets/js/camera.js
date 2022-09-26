@@ -60,6 +60,6 @@
   setInterval(function() {
     processFace();
 
-  }, 5000); // a cada 5s o método processFace vai ser construido; esse método habilita a condicação de buscar o valor no serviço cognitivo do azure
+  }, 50000000); // a cada 5s o método processFace vai ser construido; esse método habilita a condicação de buscar o valor no serviço cognitivo do azure
 
 })(); // função de auto inicialização
