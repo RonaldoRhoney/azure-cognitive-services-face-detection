@@ -41,13 +41,16 @@
   <script src="assets/js/camera.js"></script>
   <script>
     const subscriptionKey = "51b87d8709e54a26ab28da8b6edb06f1";
-    const url = "https://ai-cameras.cognitiveservices.azure.com/face/v1.0/detect";
+    const url = "https://ai-cameras.cognitiveservices.azure.com/";
 
     // função que converte o blob em base 64
     var makeblob = function(dataURL) { // recebemos o dado na url do canvas
       const BASE64_MARKER = ';base64,'; // converto para base64
       const parts = dataURL.split(BASE64_MARKER); // separo o que é de fato base64
-      const contentType = parts[0].split(':')[1];
+      const contentType = parts[0].split(':')[1];      
+
+      if (parts[1] == undefined) return null;
+
       const raw = window.atob(parts[1]);
       const rawLength = raw.length;
       const uInt8Array = new Uint8Array(rawLength); // converto em array
@@ -96,7 +99,9 @@
       $("div").css("left", left);
       $("div").css("top", top);
       $("div").css("width", width);
+
       $("ul").empty();
+
       $("ul").append(`<li>Idade:${data.faceAttributes.age}</li>`);
       $("ul").append(`<li>Sexo:${data.faceAttributes.gender}</li>`);
       $("ul").append(`<li>Óculos:${data.faceAttributes.glasses}</li>`);

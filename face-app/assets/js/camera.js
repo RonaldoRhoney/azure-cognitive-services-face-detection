@@ -37,8 +37,9 @@
     canvas.height = video.videoHeight;
     canvas.getContext("2d").drawImage(video, 0, 0);
     img.src = canvas.toDataURL("image/png");
+
     var blob = makeblob(img.src)
-    processImage(blob);
+    if (blob != null) processImage(blob);
   };
 
   async function initializeCamera() {
@@ -60,6 +61,6 @@
   setInterval(function() {
     processFace();
 
-  }, 50000000); // a cada 5s o método processFace vai ser construido; esse método habilita a condicação de buscar o valor no serviço cognitivo do azure
+  }, 5000); // a cada 5s o método processFace vai ser construido; esse método habilita a condicação de buscar o valor no serviço cognitivo do azure
 
 })(); // função de auto inicialização
